@@ -1,0 +1,32 @@
+    
+{% extends "base.html" %}
+
+{% block title %}Detail{% endblock title %}
+
+{% block content %}
+<br>
+<div class="row container-fluid">
+    <div class="col-12">
+
+    {% if pet.image %}
+        <div class="img-card">
+        <img src="{{pet.image.url}}">
+        </div> <!-- end of img-card -->
+    {% endif %}
+    <br>
+
+    <h1>{{pet.name}}</h1>
+    <p>{{pet.age}}</p>
+    <p>{{pet.price}}</p>
+
+    <div class="pb-5">
+
+    <a class="bbtn btn-outline" role="button" href="{% url 'update-pet' pet.id %}">Update</a>
+    <a class="btn btn-outline" role="button"  href="{% url 'delete-pet' pet.id %}">Delete</a>
+
+    </div>
+   
+    </div> <!-- end of card -->
+</div> <!-- end of row -->
+
+{% endblock content %}

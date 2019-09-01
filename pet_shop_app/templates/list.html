@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Pets{% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid pb-5" style="margin-top:80px">
+    <div class="row">
+
+    {% for item in pet %}
+    <div class="col-lg-6 ">
+        <div class="card">
+
+        {% if item.image %}
+        <img src="{{item.image.url}}" class="card-img-top img-fluid">
+        {% endif %}
+
+        <div class="card-body">
+
+        <h1 class="card-title">{{item.name}}</h1>
+
+        <div>
+            <a href="{{item.get_absolute_url}}">
+            <button type="button" class="btn btn-outline" >More</button>
+            </a>
+        </div>
+
+        </div> <!-- end of card-body -->
+
+        </div> <!-- end of card -->
+
+    </div> <!--end of col -->
+
+
+    {% endfor %}
+
+
+    </div> <!-- end of row -->
+</div> <!-- end of container -->
+
+{% endblock content %}
